@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Area51NyeSikkerhedssysyem
 {
-    class Program
+    class florPanel
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

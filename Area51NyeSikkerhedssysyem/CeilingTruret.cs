@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Area51NyeSikkerhedssysyem
 {
-    class Program
+    class CeilingTruret
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

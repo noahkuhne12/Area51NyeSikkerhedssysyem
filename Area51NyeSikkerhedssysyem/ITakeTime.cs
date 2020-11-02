@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Area51NyeSikkerhedssysyem
 {
-    class Program
+    interface ITakeTime
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
