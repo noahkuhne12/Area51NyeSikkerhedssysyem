@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Area51NyeSikkerhedssysyem
 {
-    class FlorPanel
+    public class FlorPanel
     {
     }
 }

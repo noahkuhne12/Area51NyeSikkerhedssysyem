@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Area51NyeSikkerhedssysyem
 {
-    class Elevator
+    public class Elevator
     {
         public List<int> Orderlist { get; set; }
 
