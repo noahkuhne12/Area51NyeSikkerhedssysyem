@@ -9,8 +9,13 @@ namespace Area51NyeSikkerhedssysyem
         {
             Database database = new Database();
             Elevator elevator = new Elevator();
+            database.StaffList = new List<Staff>();
 
-            
+            Console.WriteLine("enter how many staff i nidet");
+            int howManyStaff = Convert.ToInt32(Console.ReadLine());
+
+            Staff.CreateStaff(howManyStaff, database);
+
         }
     }
 }

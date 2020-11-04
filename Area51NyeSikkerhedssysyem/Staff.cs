@@ -13,19 +13,19 @@ namespace Area51NyeSikkerhedssysyem
         public int SpawnTime { get; set; }
         public bool DieState { get; set; }
 
-        public static void CreatePersonale(int numberForPersonale)
+        public static void CreateStaff(int numberForStaff, Database _database)
         {
-            Database database = new Database();
+            Database database = _database;
 
-            for (int i = 0; i <= numberForPersonale; i++)
+            for (int i = 0; i <= numberForStaff; i++)
             {
                 database.StaffList.Add(new Staff());
                 database.StaffList[i].ID = i;
                 database.StaffList[i].SecurityCertificates = Random(0, 5);
-                database.StaffList[i].SpawnFlor = Random(0,3);
-                database.StaffList[i].TagetFlor = Random(0,3);
-                database.StaffList[i].SpawnTime = Random(0,100);
-                database.StaffList[i].DieState = true;
+                database.StaffList[i].SpawnFlor = Random(0, 3);
+                database.StaffList[i].TagetFlor = Random(0, 3);
+                database.StaffList[i].SpawnTime = Random(0, 100);
+                database.StaffList[i].DieState = false;
             }
         }
         private static int Random(int num1, int num2)
