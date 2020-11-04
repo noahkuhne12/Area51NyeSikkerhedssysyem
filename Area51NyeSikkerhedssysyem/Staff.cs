@@ -17,7 +17,7 @@ namespace Area51NyeSikkerhedssysyem
         {
             Database database = _database;
 
-            for (int i = 0; i <= numberForStaff; i++)
+            for (int i = 0; i < numberForStaff; i++)
             {
                 database.StaffList.Add(new Staff());
                 database.StaffList[i].ID = i;
