@@ -7,6 +7,7 @@ namespace Area51NyeSikkerhedssysyem
     public class Flor
     {
         public int FlorNumber { get; set; }
+        public int SecurityLevel { get; set; }
 
         public static void CreateFlor(Database _database)
         {
@@ -18,6 +19,7 @@ namespace Area51NyeSikkerhedssysyem
             {
                 database.FlorList.Add(new Flor());
                 database.FlorList[i].FlorNumber = i;
+                database.FlorList[i].SecurityLevel = i + 1;
             }
         }
     }
