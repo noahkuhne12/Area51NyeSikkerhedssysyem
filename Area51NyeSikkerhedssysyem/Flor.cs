@@ -12,16 +12,16 @@ namespace Area51NyeSikkerhedssysyem
         Scanner Myscanner = new Scanner();
         Panel MyPanel = new Panel();
         CeilingTruret MyCeilingTruret = new CeilingTruret();
-
-        public static void CreateFlor(Program program)
+        public Flor(Kontrol ctrl, Program p)
         {
+            Myscanner.Kontrol = ctrl; 
             int flors = 4;
 
-            Program database = program;
+            Program database = p;
             
             for (int i = 0; i < flors; i++)
             {
-                database.FlorList.Add(new Flor());
+                database.FlorList.Add(new Flor(ctrl, p));
                 database.FlorList[i].FlorNumber = i;
                 database.FlorList[i].SecurityLevel = i + 1;
                 database.FlorList[i].Myscanner.ID = i;
@@ -29,5 +29,6 @@ namespace Area51NyeSikkerhedssysyem
                 database.FlorList[i].MyCeilingTruret.ID = i;
             }
         }
+        
     }
 }

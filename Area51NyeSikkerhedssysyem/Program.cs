@@ -15,6 +15,7 @@ namespace Area51NyeSikkerhedssysyem
                 StaffList = new List<Staff>()
             };
 
+            Kontrol kontrol = new Kontrol();
             Elevator elevator = new Elevator();
 
             Console.WriteLine("enter how many staff i nidet");
@@ -24,18 +25,18 @@ namespace Area51NyeSikkerhedssysyem
 
             //Staff test
 
-            //foreach (Staff staff in program.StaffList)
-            //{
-            //    Console.WriteLine(staff.ID);
-            //    Console.WriteLine(staff.SecurityCertificates);
-            //    Console.WriteLine(staff.SpawnFlor);
-            //    Console.WriteLine(staff.TagetFlor);
-            //    Console.WriteLine(staff.SpawnTime);
-            //    Console.WriteLine(staff.DieState);
-            //}
-            //Console.ReadLine();
+            foreach (Staff staff in program.StaffList)
+            {
+                Console.WriteLine(staff.ID);
+                Console.WriteLine(staff.SecurityCertificates);
+                Console.WriteLine(staff.SpawnFlor);
+                Console.WriteLine(staff.TagetFlor);
+                Console.WriteLine(staff.SpawnTime);
+                Console.WriteLine(staff.DieState);
+            }
+            Console.ReadLine();
 
-            Flor.CreateFlor(program);
+            Flor flor = new Flor(kontrol, program);
 
             //Flor test
 
@@ -46,8 +47,22 @@ namespace Area51NyeSikkerhedssysyem
             //    Console.WriteLine();
             //}
             //Console.ReadLine();
+            
+            int timer = 0;
 
+            while (timer != 100)
+            {
+                for (int i = 0; i < program.StaffList.Count; i++)
+                {
+                    if (timer == program.StaffList[i].SpawnTime)
+                    {
+                        int flor = program.StaffList[i].SpawnFlor;
 
+                        Panel.ElevatorRecrest(flor);
+                    }
+                }
+                timer++;
+            }
         }
     }
 }
