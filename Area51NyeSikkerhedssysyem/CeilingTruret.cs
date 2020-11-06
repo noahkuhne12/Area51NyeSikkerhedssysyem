@@ -6,5 +6,6 @@ namespace Area51NyeSikkerhedssysyem
 {
     public class CeilingTruret
     {
+        public int ID { get; set; }
     }
 }

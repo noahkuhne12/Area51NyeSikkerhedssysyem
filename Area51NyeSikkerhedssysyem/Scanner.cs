@@ -6,5 +6,6 @@ namespace Area51NyeSikkerhedssysyem
 {
     public class Scanner
     {
+        public int ID { get; set; }
     }
 }
