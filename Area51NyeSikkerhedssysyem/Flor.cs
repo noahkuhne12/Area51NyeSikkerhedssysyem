@@ -13,11 +13,11 @@ namespace Area51NyeSikkerhedssysyem
         Panel MyPanel = new Panel();
         CeilingTruret MyCeilingTruret = new CeilingTruret();
 
-        public static void CreateFlor(Database _database)
+        public static void CreateFlor(Program program)
         {
             int flors = 4;
 
-            Database database = _database;
+            Program database = program;
             
             for (int i = 0; i < flors; i++)
             {

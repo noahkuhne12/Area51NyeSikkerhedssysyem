@@ -3,23 +3,28 @@ using System.Collections.Generic;
 
 namespace Area51NyeSikkerhedssysyem
 {
-    class Program
+    public class Program
     {
+        public List<Flor> FlorList { get; set; }
+        public List<Staff> StaffList { get; set; }
         static void Main(string[] args)
         {
-            Database database = new Database();
+            Program program = new Program
+            {
+                FlorList = new List<Flor>(),
+                StaffList = new List<Staff>()
+            };
+
             Elevator elevator = new Elevator();
-            database.StaffList = new List<Staff>();
-            database.FlorList = new List<Flor>();
 
             Console.WriteLine("enter how many staff i nidet");
-            int howManyStaff =Convert.ToInt32(Console.ReadLine());
+            int howManyStaff = Convert.ToInt32(Console.ReadLine());
 
-            Staff.CreateStaff(howManyStaff, database);
+            Staff.CreateStaff(howManyStaff, program);
 
             //Staff test
 
-            //foreach (Staff staff in database.StaffList)
+            //foreach (Staff staff in program.StaffList)
             //{
             //    Console.WriteLine(staff.ID);
             //    Console.WriteLine(staff.SecurityCertificates);
@@ -30,11 +35,11 @@ namespace Area51NyeSikkerhedssysyem
             //}
             //Console.ReadLine();
 
-            Flor.CreateFlor(database);
+            Flor.CreateFlor(program);
 
             //Flor test
 
-            //foreach (Flor flor in database.FlorList)
+            //foreach (Flor flor in program.FlorList)
             //{
             //    Console.WriteLine(flor.FlorNumber);
             //    Console.WriteLine(flor.SecurityLevel);

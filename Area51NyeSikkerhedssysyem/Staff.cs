@@ -13,9 +13,9 @@ namespace Area51NyeSikkerhedssysyem
         public int SpawnTime { get; set; }
         public bool DieState { get; set; }
 
-        public static void CreateStaff(int numberForStaff, Database _database)
+        public static void CreateStaff(int numberForStaff, Program database)
         {
-            Database database = _database;
+            
 
             for (int i = 0; i < numberForStaff; i++)
             {
