@@ -13,14 +13,16 @@ namespace Area51NyeSikkerhedssysyem
         public int SpawnTime { get; set; }
         public bool DieState { get; set; }
 
-        public Staff(int i)
+        int count = 0;
+        public Staff()
         {
-            ID = i;
+            ID = count;
             SecurityCertificates = Random(0, 5);
             SpawnFlor = Random(0, 3);
             TagetFlor = Random(0, 3);
             SpawnTime = Random(0, 100);
             DieState = false;
+            count++;
         }
 
         private static int Random(int num1, int num2)
