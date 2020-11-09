@@ -9,7 +9,7 @@ namespace Area51NyeSikkerhedssysyem
         public List<Staff> StaffList { get; set; }
         static void Main(string[] args)
         {
-            Program program = new Program
+            Program database = new Program
             {
                 FlorList = new List<Flor>(),
                 StaffList = new List<Staff>()
@@ -18,25 +18,42 @@ namespace Area51NyeSikkerhedssysyem
             Kontrol kontrol = new Kontrol();
             Elevator elevator = new Elevator();
 
-            Console.WriteLine("enter how many staff i nidet");
-            int howManyStaff = Convert.ToInt32(Console.ReadLine());
 
-            Staff.CreateStaff(howManyStaff, program);
+
+        
+
+            Console.WriteLine("number Of Staff");
+            int numberOfStaff = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < numberOfStaff; i++)
+            {
+                Staff staff = new Staff(i);
+                database.StaffList.Add(staff);
+            }
+            
+
 
             //Staff test
 
-            foreach (Staff staff in program.StaffList)
+            foreach (Staff staf in database.StaffList)
             {
-                Console.WriteLine(staff.ID);
-                Console.WriteLine(staff.SecurityCertificates);
-                Console.WriteLine(staff.SpawnFlor);
-                Console.WriteLine(staff.TagetFlor);
-                Console.WriteLine(staff.SpawnTime);
-                Console.WriteLine(staff.DieState);
+                Console.WriteLine(staf.ID);
+                Console.WriteLine(staf.SecurityCertificates);
+                Console.WriteLine(staf.SpawnFlor);
+                Console.WriteLine(staf.TagetFlor);
+                Console.WriteLine(staf.SpawnTime);
+                Console.WriteLine(staf.DieState);
             }
             Console.ReadLine();
 
-            Flor flor = new Flor(kontrol, program);
+            int flors = 4;
+
+            for (int i = 0; i < flors; i++)
+            {
+                Flor flor = new Flor(kontrol, i);
+                database.FlorList.Add(flor);
+            }
+            
 
             //Flor test
 
@@ -48,21 +65,21 @@ namespace Area51NyeSikkerhedssysyem
             //}
             //Console.ReadLine();
             
-            int timer = 0;
+            //int timer = 0;
 
-            while (timer != 100)
-            {
-                for (int i = 0; i < program.StaffList.Count; i++)
-                {
-                    if (timer == program.StaffList[i].SpawnTime)
-                    {
-                        int flor = program.StaffList[i].SpawnFlor;
+            //while (timer != 100)
+            //{
+            //    for (int i = 0; i < database.StaffList.Count; i++)
+            //    {
+            //        if (timer == database.StaffList[i].SpawnTime)
+            //        {
+            //            int flor = database.StaffList[i].SpawnFlor;
 
-                        Panel.ElevatorRecrest(flor);
-                    }
-                }
-                timer++;
-            }
+            //            Panel.ElevatorRecrest(flor);
+            //        }
+            //    }
+            //    timer++;
+            //}
         }
     }
 }

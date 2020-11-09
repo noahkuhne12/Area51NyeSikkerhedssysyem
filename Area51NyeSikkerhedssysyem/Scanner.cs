@@ -8,7 +8,7 @@ namespace Area51NyeSikkerhedssysyem
     {
         public int ID { get; set; }
 
-        public Kontrol Kontrol;
+        public Kontrol kontrol;
 
         public static void ScanSecurityCertificates(int flor)
         {
