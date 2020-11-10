@@ -18,10 +18,6 @@ namespace Area51NyeSikkerhedssysyem
         public static void AddDistanceToOrderlist(int person, Program database)
         {
             
-            if ()
-            {
-
-            }
         }
         static void TurretOrder()
         {

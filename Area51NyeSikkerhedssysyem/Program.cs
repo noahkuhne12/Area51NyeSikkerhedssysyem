@@ -5,6 +5,8 @@ namespace Area51NyeSikkerhedssysyem
 {
     public class Program
     {
+        int numberOfFlors;
+        int numberOfStaff;
         Elevator elevator;
         Kontrol kontrol;
         Flor flor;
@@ -13,8 +15,8 @@ namespace Area51NyeSikkerhedssysyem
         {
             elevator = new Elevator();
             kontrol = new Kontrol();
-            flor = new Flor();
-            staff = new Staff();
+            flor = new Flor(kontrol, staff, numberOfFlors);
+            staff = new Staff(numberOfStaff);
             
         }
         public List<Flor> FlorList { get; set; }
@@ -31,27 +33,28 @@ namespace Area51NyeSikkerhedssysyem
         
 
             Console.WriteLine("number Of Staff");
-            int numberOfStaff = Convert.ToInt32(Console.ReadLine());
+            int howManyStaff = Convert.ToInt32(Console.ReadLine());
 
-            //for (int i = 0; i < numberOfStaff; i++)
-            //{
-            //    Staff staff = new Staff(i);
-            //    database.StaffList.Add(staff);
-            //}
-            
+            for (int i = 0; i < howManyStaff; i++)
+            {
+                database.numberOfStaff = i;
+                Staff staff = new Staff(database.numberOfStaff);
+                database.StaffList.Add(staff);
+            }
+
 
             //Staff test
 
-            //foreach (Staff staf in database.StaffList)
-            //{
-            //    Console.WriteLine(staf.ID);
-            //    Console.WriteLine(staf.SecurityCertificates);
-            //    Console.WriteLine(staf.SpawnFlor);
-            //    Console.WriteLine(staf.TagetFlor);
-            //    Console.WriteLine(staf.SpawnTime);
-            //    Console.WriteLine(staf.DieState);
-            //}
-            //Console.ReadLine();
+            foreach (Staff staf in database.StaffList)
+            {
+                Console.WriteLine(staf.ID);
+                Console.WriteLine(staf.SecurityCertificates);
+                Console.WriteLine(staf.SpawnFlor);
+                Console.WriteLine(staf.TagetFlor);
+                Console.WriteLine(staf.SpawnTime);
+                Console.WriteLine(staf.DieState);
+            }
+            Console.ReadLine();
 
             int flors = 4;
 
@@ -62,20 +65,21 @@ namespace Area51NyeSikkerhedssysyem
             //}
             for (int i = 0; i < flors; i++)
             {
-                
+                database.numberOfFlors = i;
+                Flor flor = new Flor(database.kontrol, database.staff, database.numberOfFlors);
                 database.FlorList.Add(flor);
             }
 
 
             //Flor test
 
-            //foreach (Flor florr in program.FlorList)
-            //{
-            //    Console.WriteLine(florr.FlorNumber);
-            //    Console.WriteLine(florr.SecurityLevel);
-            //    Console.WriteLine();
-            //}
-            //Console.ReadLine();
+            foreach (Flor florr in database.FlorList)
+            {
+                Console.WriteLine(florr.FlorNumber);
+                Console.WriteLine(florr.SecurityLevel);
+                Console.WriteLine();
+            }
+            Console.ReadLine();
 
             int timer = 0;
 
@@ -85,9 +89,9 @@ namespace Area51NyeSikkerhedssysyem
                 {
                     if (timer == database.StaffList[i].SpawnTime)
                     {
-                        var person = database.StaffList[i].ID;
+                        database.flor.StaffOnFlor.Add(database.StaffList[i]);
 
-                        Panel.ElevatorRecrest(person, database);
+                        Panel.ElevatorRecrest();
                     }
                 }
                 timer++;

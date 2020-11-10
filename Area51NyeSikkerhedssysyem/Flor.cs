@@ -8,23 +8,23 @@ namespace Area51NyeSikkerhedssysyem
     {
         public int FlorNumber { get; set; }
         public int SecurityLevel { get; set; }
+        public List<Staff> StaffOnFlor { get; set; }
 
-        Scanner Myscanner = new Scanner();
-        Panel MyPanel = new Panel();
-        CeilingTruret MyCeilingTruret = new CeilingTruret();
-
-        int count = 0;
-        public Flor()
+        Scanner Myscanner;
+        Panel MyPanel;
+        CeilingTruret MyCeilingTruret;
+        public Flor(Kontrol ctlr, Staff staff, int numberOfFlors)
         {
-            Myscanner.kontrol = ctrl; 
-            
-            FlorNumber = count;
-            SecurityLevel = count + 1;
-            Myscanner.ID = count;
-            MyPanel.ID = count;
-            MyCeilingTruret.ID = count;
-            count++;
+            Myscanner = new Scanner(ctlr);
+            MyPanel = new Panel(ctlr, staff);
+            MyCeilingTruret = new CeilingTruret(ctlr);
+
+            FlorNumber = numberOfFlors;
+            SecurityLevel = numberOfFlors + 1;
+            Myscanner.ID = numberOfFlors;
+            MyPanel.ID = numberOfFlors;
+            MyCeilingTruret.ID = numberOfFlors;
         }
-        
+
     }
 }

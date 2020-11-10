@@ -9,9 +9,18 @@ namespace Area51NyeSikkerhedssysyem
         
         public int ID { get; set; }
 
-        public static void ElevatorRecrest(int person, Program database)
+        public Kontrol MyController;
+        public Staff MyStaff;
+
+        public Panel(Kontrol ctlr, Staff staff)
         {
-            Kontrol.AddDistanceToOrderlist(person, database);
+            MyController = ctlr;
+            MyStaff = staff;
+        }
+
+        public static void ElevatorRecrest()
+        {
+
         }
     }
 }
